@@ -3,38 +3,109 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 	<title>{ifset title}{include title|stripHtml} | {/ifset}Fyzionature</title>
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
+<style>
+	/* Dark theme custom styles */
+	body {
+		background-color: #013220; /* Dark green */
+		color: #ffffff;
+	}
+
+	.navbar-dark.bg-dark {
+		background-color: #014722 !important; /* Slightly lighter green for navbar */
+	}
+
+	a {
+		color: #87cefa; /* Highlight links */
+	}
+
+	a:hover {
+		color: #add8e6; /* Hover effect */
+	}
+
+	/* Footer styles */
+	.site-footer {
+		background-color: #014722;
+		padding: 2rem 0;
+		color: #fff;
+	}
+
+	.footer-logo {
+		width: 5rem;
+		height: 3rem;
+		margin-bottom: 1rem;
+	}
+
+	.footer-links li {
+		list-style: none;
+		margin-bottom: 0.5rem;
+	}
+
+	.footer-links a {
+		color: #fff;
+		text-decoration: none;
+	}
+
+	.footer-links a:hover {
+		color: #87cefa; /* Or your preferred hover color */
+	}
+
+	.social-icons a {
+		display: inline-block;
+		margin-right: 0.8rem;
+		color: #fff;
+		font-size: 1.5rem;
+	}
+
+	.social-icons a:hover {
+		color: #87cefa;
+	}
+
+	.copyright {
+		font-size: 0.9rem;
+		margin-top: 1.5rem;
+	}
+</style>
+
 <body>
 <div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
-<!-- Navigation bar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	<div class="container">
-		<a class="navbar-brand" href="#">Nette App</a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow my-3">
+	<div class="container-fluid">
+		<a class="navbar-brand" n:href="Home:default" style="display: flex; align-items: center;">
+			<img src="{$basePath}/logo.png" alt="Fyzionature Logo" class="navbar-logo" style="width: 3.5rem; height: 2rem;" loading="lazy">
+			<b style="margin-left: 10px;">Fyzionature</b>
+		</a>
+
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav">
+
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li class="nav-item">
-					<a class="nav-link" n:href="Home:default">
-						<i class="bi bi-house"></i> Home
+					<a class="nav-link active" aria-current="page" n:href="Home:default">
+						<i class="bi bi-house"></i> úvod
 					</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" n:href="Home:about">
-						<i class="bi bi-info-circle"></i> About
+						<i class="bi bi-info-circle"></i> o mě
 					</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" n:href="Home:contact">
-						<i class="bi bi-envelope"></i> Contact
+						<i class="bi bi-envelope"></i> kontakt
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" n:href="Home:pricelist">
+						<i class="bi bi-cash"></i> ceník
 					</a>
 				</li>
 			</ul>
@@ -42,10 +113,65 @@
 	</div>
 </nav>
 
-<!-- Main content -->
 <div class="container mt-4">
 	{include content}
 </div>
+
+<footer class="site-footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 mb-4 mb-md-0">
+				<img src="{$basePath}/logo.png" alt="Fyzionature Logo" class="footer-logo">
+				<p>
+					Fyzionature - cesta k harmonii těla i duše.
+				</p>
+			</div>
+			<div class="col-md-4 mb-4 mb-md-0">
+				<h4>Užitečné odkazy</h4>
+				<ul class="footer-links">
+					<li>
+						<i class="bi bi-house-door-fill me-2"></i><a n:href="Home:default">Domů</a>
+					</li>
+					<li>
+						<i class="bi bi-person-fill me-2"></i><a n:href="Home:about">O mně</a>
+					</li>
+					<li>
+						<i class="bi bi-envelope-fill me-2"></i><a n:href="Home:contact">Kontakt</a>
+					</li>
+					<li>
+						🍪 <a n:href="Home:cookies">Sušenky</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-4">
+				<h4>Spojte se s námi</h4>
+				<div class="social-icons">
+					<a href="https://www.facebook.com/your-facebook-page" target="_blank" rel="noopener noreferrer">
+						<i class="bi bi-facebook"></i>
+					</a>
+					<a href="https://www.instagram.com/your-instagram-profile" target="_blank" rel="noopener noreferrer">
+						<i class="bi bi-instagram"></i>
+					</a>
+					<a href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank" rel="noopener noreferrer">
+						<i class="bi bi-linkedin"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="row mt-4">
+			<div class="col-12 text-center">
+				<hr>
+				<small>
+					<p>
+						...created with magic power of
+						<span title="coffee">☕</span><br>
+						<span>by <a class="link-warning" href="https://tomas.hoffmann.cz/" target="_blank">T|O|M|E|K</a></span>
+					</p>
+				</small>
+			</div>
+		</div>
+	</div>
+</footer>
 
 {block scripts}
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

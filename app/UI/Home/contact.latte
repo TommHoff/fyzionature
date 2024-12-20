@@ -1,0 +1,82 @@
+{block content}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8">
+            <div class="py-5 px-3 px-sm-4 px-md-5 shadow rounded">
+                <h1 class="text-center mb-2">
+                    Kontakt <i class="bi bi-chat-dots"></i>
+                </h1>
+
+                <p class="lead text-center text-muted mb-4">
+                    Máte dotaz, chcete se objednat, nebo potřebujete více informací?
+                    Neváhejte se na mě obrátit! <i class="bi bi-emoji-smile"></i>
+                </p>
+
+                <div class="alert alert-info text-center mb-4" role="alert">
+                    <i class="bi bi-info-circle-fill me-2"></i>
+                    Pokud zrovna nezvedám telefon, pravděpodobně se věnuji klientovi.
+                    Zanechte mi prosím SMS nebo e-mail a já se vám co nejdříve ozvu.
+                </div>
+
+                <p class="text-center mb-4">
+                    <i class="bi bi-calendar-check me-2"></i>
+                    <strong>Ordinační hodiny:</strong> Vždy ve všední dny, po předchozí
+                    domluvě.
+                </p>
+
+                <div class="row">
+                    <div class="col-12 col-md-6 mb-4 mb-md-0">
+                        <h4><i class="bi bi-person-fill me-2"></i> Bc. Lucie Čepeláková</h4>
+                        <p>
+                            <i class="bi bi-geo-alt-fill me-2"></i>
+                            Karlovarská 490/24<br />
+                            Plzeň 301 00
+                        </p>
+                        <p>
+                            <strong>
+                                <i class="bi bi-telephone-fill me-2"></i>
+                                Tel.:
+                            </strong>
+                            <a href="tel:+420721683609">+420 721 683 609</a>
+                        </p>
+                        <p>
+                            <strong>
+                                <i class="bi bi-envelope-fill me-2"></i>
+                                Email:
+                            </strong>
+                            <a href="mailto:fyzionature@gmail.com">fyzionature@gmail.com</a>
+                        </p>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="map-container">
+                            <iframe
+                                    style="border: none; border-radius: 0.5rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"
+                                    src="https://en.frame.mapy.cz/s/namebupapu"
+                                    width="100%"
+                                    height="280"
+                                    frameborder="0"
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+
+<style>
+    .map-container {
+        position: relative;
+        padding-bottom: 75%; /* Aspect ratio for map (adjust as needed) */
+        height: 0;
+        overflow: hidden;
+    }
+    .map-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>
