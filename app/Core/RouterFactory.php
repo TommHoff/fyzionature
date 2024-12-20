@@ -20,6 +20,7 @@ final class RouterFactory
         $router->addRoute('kontakt', 'Home:contact');
         $router->addRoute('susenky', 'Home:cookies');
         $router->addRoute('cenik', 'Home:pricelist');
+        $router->addRoute('sluzby', 'Home:service');
 
         // Default route (keep this last)
         $router->addRoute('<presenter>/<action>[/<id>]', 'Home:default');
